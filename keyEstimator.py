@@ -29,12 +29,13 @@ class keyEstimator(object):
 
         # on utilise ici l'algorithme de Krumhansl-Schmuckler
         # profiles typiques des clés mineurs et majeurs:
-        maj_profile = [6.35, 2.23, 3.48, 2.33, 4.38, 4.09, 2.52, 5.19, 2.39, 3.66, 2.29, 2.88]
-        min_profile = [6.33, 2.68, 3.52, 5.38, 2.60, 3.53, 2.54, 4.75, 3.98, 2.69, 3.34, 3.17]
+        maj_profile = [6.35, 2.23, 3.48, 2.33, 4.38, 4.09,
+                       2.52, 5.19, 2.39, 3.66, 2.29, 2.88]
+        min_profile = [6.33, 2.68, 3.52, 5.38, 2.60, 3.53,
+                       2.54, 4.75, 3.98, 2.69, 3.34, 3.17]
 
-        # calcule les corrélations entre la quantité de chaque classe de hauteur
-        # dans l'intervalle de temps et les profils ci-dessus,
-        # en commençant sur les 12 hauteurs. then creates dict of the musical keys (major/minor) to the correlation
+        # calcule les corrélations entre l'intensité de chaque classe de hauteur
+        # dans l'intervalle de temps et les profils ci-dessus.
         self.min_key_corrs = []
         self.maj_key_corrs = []
         for i in range(12):

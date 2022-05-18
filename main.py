@@ -2,7 +2,7 @@ import librosa.display
 import keyEstimator as k
 
 # Choix de la musique
-audio_path = 'res/Clavar-la-espada.wav'
+audio_path = 'res/Perfect.wav'
 y, sr = librosa.load(audio_path)
 
 # Décompose la musique en composantes harmoniques et à percussions
