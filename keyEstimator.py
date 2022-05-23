@@ -21,7 +21,7 @@ class keyEstimator(object):
         self.chroma_vals = []
         for i in range(12):
             self.chroma_vals.append(np.sum(self.chromograph[i]))
-        pitches = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+        pitches = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
         # dictionnaire associant les classes de hauteur à leurs intensités dans le morceau
         self.keyfreqs = {pitches[i]: self.chroma_vals[i] for i in range(12)}
 
@@ -68,7 +68,7 @@ class keyEstimator(object):
         for key, chrom in self.keyfreqs.items():
             print(key, '\t', f'{chrom / self.chroma_max:5.3f}')
 
-    # affiche les coefficients de corrélation associacés à chaque clé mineur et majeur
+    # affiche les coefficients de corrélation associés à chaque clé mineur et majeur
     def corr_table(self):
         for key, corr in self.key_dict.items():
             print(key, '\t', f'{corr:6.3f}')
@@ -91,3 +91,10 @@ class keyEstimator(object):
         plt.colorbar()
         plt.tight_layout()
         plt.show()
+
+    #retourne un dictionnaire associant les clefs aux coefficients de corrélation correspondant pour le morceau
+    def correlations(self):
+        cor = [(chrom / self.chroma_max) for key,chrom in self.keyfreqs.items()]
+        pitches = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
+        cor2 = {pitches[i]: cor[i] for i in range(12)}
+        return cor2
